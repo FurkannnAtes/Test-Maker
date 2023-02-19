@@ -33,11 +33,14 @@ const Test = () => {
     } else {
       try {
         setIsload(true);
-        const res = await axios.post("http://localhost:3080/", {
-          topic,
-          questionCount: numQuestions,
-          difficulty,
-        });
+        const res = await axios.post(
+          "https://test-maker-backend.onrender.com/",
+          {
+            topic,
+            questionCount: numQuestions,
+            difficulty,
+          }
+        );
         const data = await res.data;
         setTestQuestions(data);
         setIsload(false);
